@@ -1,0 +1,15 @@
+---
+etcd_ip: 127.0.0.1
+etcd_cluster_token: etcd-cluster
+
+etcd_tls: False
+etcd_tls_peer_ca: ""
+etcd_tls_peer_key: ""
+etcd_tls_peer_cert: ""
+etcd_tls_client_ca: ""
+etcd_tls_client_key: ""
+etcd_tls_client_cert: ""
+
+etcd_peers: []
+# - name: peer1
+#   ip: 8.8.8.8

@@ -1,0 +1,22 @@
+---
+
+- name: Install etcd
+  become: True
+  package:
+    name: etcd
+    state: present
+
+- name: Configure etcd
+  become: True
+  template:
+    src: etcd.j2
+    dest: /etc/default/etcd
+    owner: root
+    group: root
+    mode: 0640
+  notify: Restart etcd
+
+- name: Start etcd
+  service:
+    name: etcd
+    state: started
