@@ -15,8 +15,7 @@ this role.
 | `etcd_ip` | `127.0.0.1` | The address to run this instance on |
 | `etcd_cluster_token` | `etcd-cluster` | The token to use for this cluster |
 | `etcd_tls` | `False` | Connect clients and peers via TLS |
-| `etcd_peer_ca` | `''` | Path to the file containing the key. Required for
-`etcd_tls` |
+| `etcd_peer_ca` | `''` | Path to the file containing the key. Required for `etcd_tls` |
 | `etcd_peer_cert` | `''` | " |
 | `etcd_peer_key` | `''` | " |
 | `etcd_client_ca` | `''` | " |
