@@ -3,7 +3,7 @@
 - name: Install etcd
   become: True
   package:
-    name: etcd
+    name: etcd-server
     state: present
 
 - name: Configure etcd
