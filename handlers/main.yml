@@ -1,5 +1,6 @@
 ---
 - name: Restart etcd
+  become: True
   service:
     name: etcd
     state: restarted

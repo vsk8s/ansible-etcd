@@ -17,6 +17,7 @@
   notify: Restart etcd
 
 - name: Start etcd
+  become: True
   service:
     name: etcd
     state: started
