@@ -18,7 +18,9 @@ this role.
 | `etcd_peer_ca` | `''` | Path to the file containing the key. Required for `etcd_tls` |
 | `etcd_peer_cert` | `''` | " |
 | `etcd_peer_key` | `''` | " |
+| `etcd_peer_crl` | `''` | " |
 | `etcd_client_ca` | `''` | " |
 | `etcd_client_cert` | `''` | " |
 | `etcd_client_key` | `''` | " |
+| `etcd_client_crl` | `''` | " |
 | `etcd_peers` | `[]` | The list of peers with a custom `name` and `ip` set |

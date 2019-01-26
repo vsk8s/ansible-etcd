@@ -18,12 +18,14 @@ DAEMON_ARGS="\
 --cert-file {{ etcd_tls_client_cert }} \
 --key-file {{ etcd_tls_client_key }} \
 --trusted-ca-file {{ etcd_tls_client_ca }} \
+--client-crl-file {{ etcd_tls_client_crl }} \
 --client-cert-auth \
 
 
 --peer-cert-file {{ etcd_tls_peer_cert }} \
 --peer-key-file {{ etcd_tls_peer_key }} \
 --peer-trusted-ca-file {{ etcd_tls_peer_ca }} \
+--peer-crl-file {{ etcd_tls_client_crl }} \
 --peer-client-cert-auth \
 {% endif %}
 
