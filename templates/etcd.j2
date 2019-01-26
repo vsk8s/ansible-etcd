@@ -30,9 +30,9 @@ DAEMON_ARGS="\
 {% endif %}
 
 --initial-cluster-token {{ etcd_cluster_token }} \
---initial-cluster
-{%- for peer in etcd_peers -%}
-    {{ peer.name }}={{ etcd_protocol }}://{{ peer.ip }}:2380{{ if not loop.last "," else "" }}
+{% if etcd_peers != [] %}
+--initial-cluster {% for peer in etcd_peers -%}
+    {{ peer.name }}={{ etcd_protocol }}://{{ peer.ip }}:2380{{ "," if not loop.last else "" }}
 {%- endfor %} \
---initial-cluster-state new \
-"
+{% endif %}
+--initial-cluster-state new"
