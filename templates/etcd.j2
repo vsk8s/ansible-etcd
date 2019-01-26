@@ -1,33 +1,30 @@
-{% if etcd_tls %}
+{% if etcd_tls -%}
     {% set etcd_protocol = 'https' %}
-{% else %}
+{% else -%}
     {% set etcd_protocol = 'http' %}
 {% endif -%}
 
 DAEMON_ARGS="\
 --name {{ ansible_nodename }} \
 --data-dir /var/etcd/default \
-
 --initial-advertise-peer-urls {{ etcd_protocol }}://{{ etcd_ip }}:2380 \
 --listen-peer-urls {{ etcd_protocol }}://{{ etcd_ip }}:2380 \
-
 --advertise-client-urls {{ etcd_protocol }}://{{ etcd_ip }}:4001 \
 --listen-client-urls {{ etcd_protocol }}://{{ etcd_ip }}:4001 \
 
-{% if etcd_tls %}
+{%- if etcd_tls %}
+
 --cert-file {{ etcd_tls_client_cert }} \
 --key-file {{ etcd_tls_client_key }} \
 --trusted-ca-file {{ etcd_tls_client_ca }} \
 --client-crl-file {{ etcd_tls_client_crl }} \
 --client-cert-auth \
-
-
 --peer-cert-file {{ etcd_tls_peer_cert }} \
 --peer-key-file {{ etcd_tls_peer_key }} \
 --peer-trusted-ca-file {{ etcd_tls_peer_ca }} \
 --peer-crl-file {{ etcd_tls_client_crl }} \
 --peer-client-cert-auth \
-{% endif %}
+{% endif -%}
 
 --initial-cluster-token {{ etcd_cluster_token }} \
 {% if etcd_peers != [] %}
