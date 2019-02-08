@@ -13,7 +13,7 @@
     dest: "{{ item.dest }}"
     owner: root
     group: root
-    mode: 0640
+    mode: 0644
   with_items:
     - src: etcd.j2
       dest: /etc/default/etcd
