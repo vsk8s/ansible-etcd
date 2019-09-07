@@ -5,7 +5,7 @@
 {% endif -%}
 
 DAEMON_ARGS="\
---name {{ ansible_nodename }} \
+--name {{ ansible_fqdn }} \
 --data-dir /var/etcd/default \
 --initial-advertise-peer-urls {{ etcd_protocol }}://{{ etcd_ip }}:2380 \
 --listen-peer-urls {{ etcd_protocol }}://{{ etcd_ip }}:2380 \
